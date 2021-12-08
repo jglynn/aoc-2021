@@ -12,7 +12,10 @@ fun loadD1Input(name: String): List<Int> {
 }
 
 fun loadD2Input(name: String): List<Pair<String,Int>> {
-    return readInput(name).map() { Pair(it.split(" ")[0], it.split(" ")[1].toInt()) }
+    return readInput(name).map() {
+        val (name, value) = it.split(" ")
+        Pair(name, value.toInt())
+    }
 }
 /**
  * Converts string to md5 hash.
