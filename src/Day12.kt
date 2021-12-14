@@ -1,16 +1,15 @@
-import java.util.*
 
 fun main() {
 
     // Uppercase nodes can be visited more than once
     // All other nodes only once
-    fun canVisitPart1(visitedNodes: MutableList<String>, node: String): Boolean =
+    fun canVisitPart1(visitedNodes: List<String>, node: String): Boolean =
         node.isUpperCase() or (node !in visitedNodes)
 
     // Uppercase nodes can be visited more than once
     // Only one lowercase node can be visited twice
     // start cannot be revisited
-    fun canVisitPart2(visitedNodes: MutableList<String>, node: String): Boolean =
+    fun canVisitPart2(visitedNodes: List<String>, node: String): Boolean =
         when {
             node.isUpperCase() -> true
             node !in visitedNodes -> true
@@ -22,9 +21,9 @@ fun main() {
                 .none { it.value == 2 }
         }
 
-    fun solve(input: List<String>, canVisit: (nodes: MutableList<String>, node: String) -> Boolean ): Int {
-        var graph = loadD12Input(input)
-        var dfs = DFS(canVisit)
+    fun solve(input: List<String>, canVisit: (nodes: List<String>, node: String) -> Boolean ): Int {
+        val graph = loadD12Input(input)
+        val dfs = DFS(canVisit)
         dfs.enumerate(graph, "start", "end")
         return dfs.allPaths.size
     }
