@@ -17,6 +17,16 @@ fun loadD2Input(name: String): List<Pair<String,Int>> {
         Pair(name, value.toInt())
     }
 }
+
+fun loadD12Input(input: List<String>): Graph<String> {
+    var graph = Graph<String>()
+    input.map {
+        val (src, dest) = it.split("-")
+        graph.addEdge(src, dest)
+    }
+    return graph
+}
+
 /**
  * Converts string to md5 hash.
  */
