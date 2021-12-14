@@ -22,9 +22,7 @@ class Graph<T> {
     }.toString()
 }
 
-class DFS (
-    val canVisit: (MutableList<String>, String) -> Boolean
-) {
+class DFS (val canVisit: (List<String>, String) -> Boolean) {
     private val path = Stack<String>() // the current path
     private val onPath = mutableListOf<String>() // the set of nodes on the path
     val allPaths = mutableListOf<List<String>>() // all viable paths found
@@ -32,11 +30,9 @@ class DFS (
     // Perform a Depth First Search
     fun enumerate(graph: Graph<String>, startNode: String, endNode: String) {
 
-        // add node v to current path from s
         path.push(startNode)
         onPath.add(startNode)
 
-        // found path from s to t - currently prints in reverse order because of stack
         if (startNode == endNode) {
             allPaths.add(path.toList())
         } else {
@@ -45,7 +41,6 @@ class DFS (
             }
         }
 
-        // done exploring from v, so remove from path
         path.pop()
         onPath.remove(startNode)
     }
