@@ -2,6 +2,8 @@
 
 Welcome to the Advent of Code[^aoc] Kotlin project created by [jglynn][github] using the [Advent of Code Kotlin Template][template] delivered by JetBrains.
 
+![example workflow](https://github.com/jglynn/aoc-2021/actions/workflows/gradle.yml/badge.svg)
+
 #### Challenges & Solutions
 | Day | Title                                  | Links                                                                     |
 |-----|----------------------------------------|---------------------------------------------------------------------------|
