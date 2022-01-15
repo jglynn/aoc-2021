@@ -1,6 +1,8 @@
-fun main() {
+package org.jglynn.aoc
 
-    fun part1(input: List<Pair<String,Int>> ): Int {
+class Day02(private val input: List<Pair<String,Int>>) {
+
+    fun solvePart1(): Int {
         var (horizontal, depth) = Pair(0,0)
         for ((action,num) in input) {
             when(action) {
@@ -12,7 +14,7 @@ fun main() {
         return horizontal * depth
     }
 
-    fun part2(input: List<Pair<String,Int>> ): Int {
+    fun solvePart2(): Int {
         var (horizontal, depth, aim) = Triple(0,0,0)
         for ((action,num) in input) {
             when(action) {
@@ -26,13 +28,4 @@ fun main() {
         }
         return horizontal * depth
     }
-
-    val input = loadD2Input("Day02_test")
-    val p1 = part1(input)
-    val p2 = part2(input)
-
-    println(p1)
-    println(p2)
-    check(p1 == 1990000)
-    check(p2 == 1975421260)
 }
